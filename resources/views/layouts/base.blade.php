@@ -10,6 +10,7 @@
     <style>
       [x-cloak] { display: none !important; }
     </style>
+    @livewireStyles
     {{-- <link href="css/main.css" rel="stylesheet"> --}}
     @vite(['resources/css/app.css', 'resources/js/app.js'])
   </head>
@@ -28,5 +29,6 @@
    <footer>
      Copyright <script>new Date().getFullYear()</script>
     </footer>
+    @livewireScripts
   </body>
 </html>
