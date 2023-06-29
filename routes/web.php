@@ -5,6 +5,7 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\CheckController;
 use App\Http\Controllers\TodoController;
+use App\Http\Livewire\Index;
 
 /*
 |--------------------------------------------------------------------------
@@ -20,7 +21,8 @@ use App\Http\Controllers\TodoController;
 // Route::get('/', function () {
 //     return view('welcome');
 // });
-Route::get('/', [TodoController::class, 'index'])->name('index');
+// Route::get('/', [TodoController::class, 'index'])->name('index');
+Route::get('/', [Index::class, 'index'])->name('index');
 Route::get('todos/{todo}/toggleCheck', [CheckController::class, 'toggleCheck'])->name('todos.toggleCheck');
 
 Route::get('/dashboard', function () {
