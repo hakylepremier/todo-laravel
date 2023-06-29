@@ -10,15 +10,20 @@
       <span class="">{{ $category->name }}</span>
     </div>
     @endforeach
+    <span>Route based</span>
   </aside>
   <section class="text-tertiary grid grid-cols-auto350 gap-5 items-start ">
     @foreach ($todos as $todo)
     <article class="bg-secondary p-4 rounded-xl relative" x-data="{ toggleDone: {{ $todo->is_checked }} == 0 ? false : true }">
       {{-- {{ $todo->is_checked }} --}}
-      <header class="flex justify-end  ">
-        <div class="absolute top-2 right-4" x-data="{ open: false }">
-          <img src="{{ asset('build/assets/icons/more-icon.svg') }} " alt="" class="w-7" x-on:click="open = ! open">
-          <div class="flex flex-col bg-primary text-light rounded-xl w-40 p-1 absolute top-5 right-0" x-show="open" x-transition x-cloak>
+      <header class="flex justify-end">
+        <div class="absolute top-4 right-4" x-data="{ open: false }">
+          <div class="w-6 h-2 flex justify-between cursor-pointer" x-on:click="open = ! open">
+            <div class="rounded w-[5px] h-[5px] bg-tertiary"></div>
+            <div class="rounded w-[5px] h-[5px] bg-tertiary"></div>
+            <div class="rounded w-[5px] h-[5px] bg-tertiary"></div>
+          </div>
+          <div class="flex flex-col bg-primary text-light rounded-xl w-40 p-1 absolute top-5 right-0" x-show="open" x-transition x-cloak @click.outside="open = false">
             <a href="{{ route('todos.edit', $todo) }}" class="p-3 border-b border-solid border-secondary ">Edit...</a>
             {{-- <a href="" class="p-3">Delete</a> --}}
             <form action="{{ route('todos.destroy', $todo) }}" method="POST">

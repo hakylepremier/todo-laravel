@@ -50,7 +50,7 @@
     @method('PUT')
     @csrf
     <header class="flex justify-between items-center mb-2">
-      <a href="{{ route('index') }}" class="text-xl">Cancel</a>
+      <a href="{{ route('todos.index') }}" class="text-xl">Cancel</a>
       <input type="submit" class="py-2 px-7 bg-primary text-tertiary rounded-xl" value="Edit">
     </header>
 
