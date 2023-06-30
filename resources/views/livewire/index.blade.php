@@ -24,7 +24,13 @@
      
         <button type="submit">Save Contact</button>
     </form> --}}
-    @livewire('add-form')
+    {{-- @if ($addForm)
+      @livewire('add-form', ['categories' => $categories])
+    @else
+      @livewire('edit-form', ['categories' => $categories])      
+    @endif --}}
 
-</section>
+    @livewire('todo-form', ['categories' => $categories])
+    
+  </section>
 </div>

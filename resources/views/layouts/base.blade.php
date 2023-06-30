@@ -17,10 +17,7 @@
   <body class="bg-primary text-white px-4 font-plex-serif" x-data="{ formOpen: false }">
     <header class="flex justify-between my-2">
       <h1 class="text-[2rem] font-bold">todo</h1>
-      <a href="#" class="px-3 py-4 relative rounded-lg hover:bg-secondary hover:transition-colors" x-on:click="formOpen = ! formOpen">
-        <div class="bg-white w-6 h-1 rounded mt-1 block "></div>
-        <div class="bg-white w-6 h-1 rounded rotate-90 absolute top-[19px] "></div>
-      </a>
+      @livewire('add-button')
     </header>
 
     @yield('content')

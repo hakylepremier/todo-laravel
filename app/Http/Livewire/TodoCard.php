@@ -8,14 +8,31 @@ use Livewire\Component;
 class TodoCard extends Component
 {
     public $todo;
+    public $todoId;
+
+    public $listeners = [
+        'todo' => 'todo'
+    ];
     
     public function mount(Todo $todo)
     {
         $this->todo = $todo;
+        $this->todoId = $todo->id;
+    }
+
+    public function todo(Todo $todo){
+        if($this->todoId == $todo->id){
+            $this->todo = $todo;
+        }
     }
 
     public function deleteTodo(Todo $todo){
         $this->emit('deleteTodo', $todo);
+    }
+
+    public function edit(Todo $todo){
+        // $this->emit('editForm');
+        $this->emit('edit', $todo);
     }
 
     public function toggle(Todo $todo)

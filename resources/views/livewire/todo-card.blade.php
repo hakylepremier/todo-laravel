@@ -9,16 +9,11 @@
             <div class="rounded w-[5px] h-[5px] bg-tertiary"></div>
         </div>
         <div class="flex flex-col bg-primary text-light rounded-xl w-40 p-1 absolute top-5 right-0" x-show="open" x-transition x-cloak @click.outside="open = false">
-            <a href="{{ route('todos.edit', $todo) }}" class="p-3 border-b border-solid border-secondary ">Edit...</a>
+            <button wire:click="edit({{ $todo }})" class="p-3 border-b border-solid border-secondary text-left" x-on:click="formOpen = ! formOpen">Edit...</button>
             {{-- <a href="" class="p-3">Delete</a> --}}
             <form 
-                {{-- action="{{ route('todos.destroy', $todo) }}"  --}}
-                {{-- action="#" 
-                method="POST"  --}}
                 wire:submit.prevent="deleteTodo({{ $todo }})"
             >
-            {{-- @method('DELETE')
-            @csrf --}}
             <button type="submit" class="p-3" onclick="return confirm('Are you sure?')">Delete</button>
             </form>
         </div>
